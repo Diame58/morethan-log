@@ -1,75 +1,27 @@
-const CONFIG = {
-  // profile setting (required)
-  profile: {
-    name: "morethanmin",
-    image: "/avatar.svg", // If you want to create your own notion avatar, check out https://notion-avatar.vercel.app
-    role: "frontend developer",
-    bio: "I develop everything using node.",
-    email: "morethanmin.dev@gmail.com",
-    linkedin: "morethanmin",
-    github: "morethanmin",
-    instagram: "",
-  },
-  projects: [
-    {
-      name: `morethan-log`,
-      href: "https://github.com/morethanmin/morethan-log",
-    },
-  ],
-  // blog setting (required)
-  blog: {
-    title: "morethan-log",
-    description: "welcome to morethan-log!",
-    scheme: "dark", // 'light' | 'dark' | 'system'
-  },
+import { siteConfig } from './lib/site-config'
 
-  // CONFIG configration (required)
-  link: "https://morethan-log.vercel.app",
-  since: 2022, // If leave this empty, current year will be used.
-  lang: "en-US", // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES', 'ko-KR']
-  ogImageGenerateURL: "https://og-image-korean.vercel.app", // The link to generate OG image, don't end with a slash
+export default siteConfig({
+  // the site's root Notion page (required)
+  rootNotionPageId: '031862645dd34e6e94d8169685bae7b4',
 
-  // notion configuration (required)
-  notionConfig: {
-    pageId: process.env.NOTION_PAGE_ID,
-  },
+  // if you want to restrict pages to a single notion workspace (optional)
+  // (this should be a Notion ID; see the docs for how to extract this)
+  rootNotionSpaceId: null,
 
-  // plugin configuration (optional)
-  googleAnalytics: {
-    enable: false,
-    config: {
-      measurementId: process.env.NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID || "",
-    },
-  },
-  googleSearchConsole: {
-    enable: false,
-    config: {
-      siteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
-    },
-  },
-  naverSearchAdvisor: {
-    enable: false,
-    config: {
-      siteVerification: process.env.NEXT_PUBLIC_NAVER_SITE_VERIFICATION || "",
-    },
-  },
-  utterances: {
-    enable: true,
-    config: {
-      repo: process.env.NEXT_PUBLIC_UTTERANCES_REPO || "",
-      "issue-term": "og:title",
-      label: "💬 Utterances",
-    },
-  },
-  cusdis: {
-    enable: false,
-    config: {
-      host: "https://cusdis.com",
-      appid: "", // Embed Code -> data-app-id value
-    },
-  },
-  isProd: process.env.VERCEL_ENV === "production", // distinguish between development and production environment (ref: https://vercel.com/docs/environment-variables#system-environment-variables)
-  revalidateTime: 21600 * 7, // revalidate time for [slug], index
+  // basic site info (required)
+  name: 'JnsBlog',
+  domain: 'https://obvious-possum-a82.notion.site/JnsBlog-16a8a94a1c2a8068aa93c92bc84b8835?pvs=4',
+  author: 'Diame',
+
+  // open graph metadata (optional)
+  description: 'JnsBlog',
+
+  // social usernames (optional)
+  // twitter: '#',
+  github: 'Diame58',
+  // linkedin: '#',
+  // mastodon: '#', // optional mastodon profile URL, provides link verification
+  // newsletter: '#', // optional newsletter URL
+  // youtube: '#', // optional youtube channel name or `channel/UCGbXXXXXXXXXXXXXXXXXXXXXX`
+  
 }
-
-module.exports = { CONFIG }
